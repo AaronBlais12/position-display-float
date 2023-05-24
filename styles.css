@@ -1,0 +1,51 @@
+.parent-container {
+    background-color: beige;
+    border: 2px solid black;
+    width: 75vw;
+    height: 75vh;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+/*  */
+
+.child {
+    padding: 25px;
+}
+
+.child1 {
+    border: 2px solid red;
+    background-color: red;
+}
+/* top bottom left righ z-index properties have no effect */
+
+.child2 {
+    border: 2px solid blueviolet;
+    background-color: blueviolet;
+    /* position: relative;  */
+    top: 25px; 
+    left: 25px; 
+}
+/* relative by default acts like static however by default can use top bottom left right to take element out of document flow */
+/* do not use if avoidable too manual */
+.child3 {
+    border: 2px solid green;
+    background-color: green;
+    position: absolute;
+}
+/* takes element out of flow */
+/* relative to root that is not static */
+.child4 {
+    border: 2px solid teal;
+    background-color: teal;
+    position: fixed;   git
+}
+/* fixed  ignores parent based on entire viewport absolute on parent relative will scroll*/
+.child5 {
+    border: 2px solid gray;
+    background-color: gray;
+    position: sticky; 
+}
+/* will scroll up to a point */
+/* relative by default */
+/* doesn't move out of normal flow */
