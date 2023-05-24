@@ -5,47 +5,157 @@
     height: 75vh;
     padding: 5px;
     font-family: Arial, Helvetica, sans-serif;
-    position: relative;
+
+    position: relative
+    /* causes absolute container to position inside parent container */
 }
-/*  */
 
 .child {
     padding: 25px;
 }
 
-.child1 {
+.static {
     border: 2px solid red;
     background-color: red;
+    /* top, bottom, left, right, z-index properties have NO EFFECT */
 }
-/* top bottom left righ z-index properties have no effect */
 
-.child2 {
+.relative {
     border: 2px solid blueviolet;
     background-color: blueviolet;
-    /* position: relative;  */
-    top: 25px; 
-    left: 25px; 
+
+    /* position: relative; */
+    top: 25px;
+    left: 25px;
+
+    /* by default acts like static */
+    /* can use t, b, l, r to take the element out of document flow */
+    /* ! DO NOT USE IT! It's too manual */
 }
-/* relative by default acts like static however by default can use top bottom left right to take element out of document flow */
-/* do not use if avoidable too manual */
-.child3 {
+
+.absolute {
     border: 2px solid green;
     background-color: green;
-    position: absolute;
+
+    /* position: absolute; */
+    /* takes element out of flow */
+    top: 0;
+    /* relative to root that's NOT static */
+    /* used for absolutely positioning children */
 }
-/* takes element out of flow */
-/* relative to root that is not static */
-.child4 {
+
+.fixed {
     border: 2px solid teal;
     background-color: teal;
-    position: fixed;   git
+
+    /* position: fixed; */
+    top: 0;
+    /* ignores parent */
+    /* based on ENTIRE viewport */
+    /* absolute on parent relative will scroll */
+    /* Fixed WILL NOT scroll away */
 }
-/* fixed  ignores parent based on entire viewport absolute on parent relative will scroll*/
-.child5 {
+
+.sticky {
     border: 2px solid gray;
     background-color: gray;
-    position: sticky; 
+
+    position: sticky;
+    top: 75px;
+
+    /* Acts like a combination of fixed and absolute */
+    /* Stays fixed once scroll occurs */
+    /* It's relative by default (doesn't move out of normal flow) */
+
 }
-/* will scroll up to a point */
-/* relative by default */
-/* doesn't move out of normal flow */
+
+/* 
+    CSS Position Property
+
+    ? Static
+    * default
+    * positioned in relation to elements
+    * top, bottom, left, right, z-index have NO effect
+
+    ? Relative
+    * just like static
+    * can be changed using top, bottom, left, right, z-index
+    * values are relative to its original static position
+    ! DON'T USE IT! Breaks the flow!
+
+    ? Absolute
+    * removes element from the flow
+    * positions it relative to parent container
+    * if parent is static, it will move outside of parent container
+    * if parent is relative, it will move within parent container
+    * positioning defined by top, bottom, left, right, z-index
+
+    ? Fixed
+    * like absolute
+    * positioned to viewport
+    * doesn't move when scrolling
+    * positioning defined by top, bottom, left, right, z-index
+
+    ? Sticky
+    * mix of relative and fixed
+    * relative to the flow
+    * position definition used for when you start scrolling
+    * stays fixed when scrolling; relative when stationary
+
+*/
+
+/* 
+    ? Display Property
+    
+    * Treats an element as block or inline
+    * Blocks are created top-to-bottom
+    * Inline are positioned side-by-side
+*/
+
+.display-container {
+    margin-top: 2em;
+}
+
+.block-container {
+    border: 2px solid black;
+    margin-top: 2px;
+}
+
+.inline-element {
+    margin: 5px;
+
+    display: block;
+    /* Turns buttons into blocks and aligns in a column */
+}
+
+.inline-block {
+    border: 2px solid black;
+    margin-top: 2px;
+
+    /* Initially a block */
+
+    /* display: inline; */
+    /* Acts like an inline element */
+
+    display: inline-block;
+    width: 125px;
+    /* Allows us to set the width and height of an inline element */
+    
+}
+
+.float-container {
+    margin-top: 2em;
+    border: 2px solid blue;
+    height: 20vh;
+}
+
+.float-box {
+    margin: 5px;
+    border: 2px solid orange;
+    background-color: orange;
+    width: 50px;
+    height: 50px;
+
+    float: right;
+    /* Shifts elements from left to right */
+}
